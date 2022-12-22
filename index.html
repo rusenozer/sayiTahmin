@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="tahmin"><span id="tahmin-sayisi">1</span>. Tahmini Girin: </label>
+    <input type="text" id="tahmin">
+    <br>
+    <button onclick="karsilastir()">Tahmin Yap</button>
+    <hr>
+    <p id="result"></p>
+</body>
+
+<script>
+    const tahmin_sayisi = document.getElementById('tahmin-sayisi').textContent;
+    const result = document.getElementById('result')
+    const tahmin_input =document.getElementById('tahmin')
+    const randomSayi = Math.round(Math.random()*100 + 1) 
+    console.log(randomSayi)
+    let denemeSayisi = 1;
+    let found = false;
+    function karsilastir(){
+      const tahmin = Number(tahmin_input.value)
+
+        if (tahmin !== randomSayi) {
+            denemeSayisi++
+        } else{
+            found=true
+        }
+
+        result.innerHTML = found ? `Sayı ${denemeSayisi} denemede bulundu`:(tahmin>randomSayi ? ("Daha küçük bir sayı girin") : ("Daha büyük bir sayı girin"))
+
+      
+    }
+
+</script>
+</html>
